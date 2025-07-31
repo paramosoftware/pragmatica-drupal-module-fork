@@ -9,3 +9,9 @@ entity.pragmatica_source.add:
   title: 'Adicionar fonte'
   appears_on:
     - entity.pragmatica_source.collection
+
+entity.pragmatica_selection.add:
+  route_name: entity.pragmatica_selection.add_form
+  title: 'Adicionar seleção'
+  appears_on:
+      - entity.pragmatica_selection.collection

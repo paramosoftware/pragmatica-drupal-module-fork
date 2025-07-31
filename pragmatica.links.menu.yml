@@ -20,6 +20,13 @@ pragmatica.source:
   menu_name: admin
   weight: 2
 
+pragmatica.selection:
+  title: 'Seleções'
+  route_name: entity.pragmatica_selection.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 3
+
 pragmatica.config:
   title: 'Configurações'
   description: 'Configurações'
@@ -35,3 +42,9 @@ pragmatica.config.source_type:
   menu_name: admin
   weight: 1
 
+pragmatica.config.selection_type:
+  title: 'Tipos de seleções'
+  route_name: entity.pragmatica_selection_type.collection
+  parent: pragmatica.config
+  menu_name: admin
+  weight: 2

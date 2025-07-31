@@ -127,7 +127,7 @@ entity.pragmatica_source_type.collection:
   path: '/admin/pragmatica/source_type'
   defaults:
     _entity_list: 'pragmatica_source_type'
-    _title: 'Fontes'
+    _title: 'Tipos de fontes'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -146,7 +146,7 @@ entity.pragmatica_source_type.add_form:
   path: '/admin/pragmatica/source_type/add'
   defaults:
     _entity_form: 'pragmatica_source_type.add'
-    _title: 'Adicionar fonte'
+    _title: 'Adicionar tipo de fonte'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -156,7 +156,7 @@ entity.pragmatica_source_type.edit_form:
   path: '/admin/pragmatica/source_type/{pragmatica_source_type}/edit'
   defaults:
     _entity_form: 'pragmatica_source_type.edit'
-    _title: 'Editar fonte'
+    _title: 'Editar tipo de fonte'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -167,7 +167,115 @@ entity.pragmatica_source_type.delete_form:
   path: '/admin/pragmatica/source_type/{pragmatica_source_type}/delete'
   defaults:
     _entity_form: 'pragmatica_source_type.delete'
-    _title: 'Apagar fonte'
+    _title: 'Apagar tipo de fonte'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+
+###################################################
+############# Selections routes ###################
+###################################################
+
+entity.pragmatica_selection.collection:
+  path: '/admin/pragmatica/selection'
+  defaults:
+    _entity_list: 'pragmatica_selection'
+    _title: 'Seleções'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection.canonical:
+  path: '/admin/pragmatica/selection/{pragmatica_selection}'
+  defaults:
+    _entity_view: 'pragmatica_selection'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection.add_form:
+  path: '/admin/pragmatica/selection/add'
+  defaults:
+    _entity_form: 'pragmatica_selection.add'
+    _title: 'Adicionar seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection.edit_form:
+  path: '/admin/pragmatica/selection/{pragmatica_selection}/edit'
+  defaults:
+    _entity_form: 'pragmatica_selection.edit'
+    _title: 'Editar seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection.delete_form:
+  path: '/admin/pragmatica/selection/{pragmatica_selection}/delete'
+  defaults:
+    _entity_form: 'pragmatica_selection.delete'
+    _title: 'Apagar seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+###################################################
+############ Selection types routes ###############
+###################################################
+
+entity.pragmatica_selection_type.collection:
+  path: '/admin/pragmatica/selection_type'
+  defaults:
+    _entity_list: 'pragmatica_selection_type'
+    _title: 'Tipos de seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection_type.canonical:
+  path: '/admin/pragmatica/selection_type/{pragmatica_selection_type}'
+  defaults:
+    _entity_view: 'pragmatica_selection_type'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection_type.add_form:
+  path: '/admin/pragmatica/selection_type/add'
+  defaults:
+    _entity_form: 'pragmatica_selection_type.add'
+    _title: 'Adicionar tipo de seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_selection_type.edit_form:
+  path: '/admin/pragmatica/selection_type/{pragmatica_selection_type}/edit'
+  defaults:
+    _entity_form: 'pragmatica_selection_type.edit'
+    _title: 'Editar tipo de seleção'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+
+entity.pragmatica_selection_type.delete_form:
+  path: '/admin/pragmatica/selection_type/{pragmatica_selection_type}/delete'
+  defaults:
+    _entity_form: 'pragmatica_selection_type.delete'
+    _title: 'Apagar tipo de seleção'
   requirements:
     _permission: 'pragmatica'
   options:

@@ -1,28 +1,39 @@
 <?php
 
-use Drupal\pragmatica\Entity\SourceType;
-
 /**
  * Implements hook_install().
  */
 function pragmatica_install() {
   $types = [
-    1 => 'Texto',
-    2 => 'Áudio',
-    // 3 => 'Documento (PDF)'
-    // 4 => 'Vídeo'
-    // 5 => 'Imagem'
+    'pragmatica_source_type' => [
+      1 => 'Texto',
+      2 => 'Áudio',
+      // 3 => 'Documento (PDF)',
+      // 4 => 'Vídeo',
+      // 5 => 'Imagem',
+    ],
+    'pragmatica_selection_type' => [
+      1 => 'Texto',
+      2 => 'Áudio',
+      3 => 'Transcrição',
+      // 4 => 'Seleção de Vídeo',
+      // 5 => 'Seleção de Imagem',
+    ],
   ];
 
-
-  foreach ($types as $id => $label) {
-    if (!Drupal::entityTypeManager()->getStorage('pragmatica_source_type')->load($id)) {
-      $type = SourceType::create([
-        'id' => $id,
-        'name' => $label,
-      ]);
-      $type->save();
+  foreach ($types as $type => $values) {
+    $entity_type = Drupal::entityTypeManager()->getDefinition($type);
+    if ($entity_type) {
+      foreach ($values as $id => $label) {
+        if (!Drupal::entityTypeManager()->getStorage($type)->load($id)) {
+          $classType = $entity_type->getClass();
+          $classType = $classType::create([
+            'id' => $id,
+            'name' => $label,
+          ]);
+          $classType->save();
+        }
+      }
     }
   }
-
 }
