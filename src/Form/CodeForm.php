@@ -56,6 +56,10 @@ class CodeForm extends ContentEntityForm {
     /** @var Code $entity */
     $entity = $this->getEntity();
 
+    if (isset($form['color']['widget'][0]['value']['#type'])) {
+      $form['color']['widget'][0]['value']['#type'] = 'color';
+    }
+
     $options = $form['parent']['widget']['#options'] ?? [];
     if (!$entity->isNew() && isset($options[$entity->id()])) {
       unset($options[$entity->id()]);
