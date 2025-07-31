@@ -1,6 +1,14 @@
-pragmatica.settings_form:
-  title: Pragmática
-  description: Configure Pragmática.
-  parent: system.admin_config_system
-  route_name: pragmatica.settings_form
-  weight: 10
+pragmatica.admin:
+  title: 'Pragmática'
+  description: 'Acessar o módulo Pragmática.'
+  route_name: pragmatica.dashboard
+  menu_name: admin
+  parent: system.admin
+  weight: 15
+
+pragmatica.code:
+  title: 'Códigos'
+  route_name: entity.pragmatica_code.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 1

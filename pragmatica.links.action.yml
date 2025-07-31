@@ -1,0 +1,5 @@
+entity.pragmatica_code.add:
+  route_name: entity.pragmatica_code.add_form
+  title: 'Adicionar código'
+  appears_on:
+    - entity.pragmatica_code.collection

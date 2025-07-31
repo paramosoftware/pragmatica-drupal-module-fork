@@ -1,0 +1,9 @@
+entity.pragmatica_code.canonical:
+  route_name: entity.pragmatica_code.canonical
+  base_route: entity.pragmatica_code.canonical
+  title: View
+
+entity.pragmatica_code.edit_form:
+  route_name: entity.pragmatica_code.edit_form
+  base_route: entity.pragmatica_code.canonical
+  title: Edit
