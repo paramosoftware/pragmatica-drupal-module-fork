@@ -332,3 +332,57 @@ entity.pragmatica_user.delete_form:
     _permission: 'pragmatica'
   options:
     admin_route: TRUE
+
+
+###################################################
+############# Coding routes #######################
+###################################################
+
+entity.pragmatica_coding.collection:
+  path: '/admin/pragmatica/coding'
+  defaults:
+    _entity_list: 'pragmatica_coding'
+    _title: 'Codificações'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_coding.canonical:
+  path: '/admin/pragmatica/coding/{pragmatica_coding}'
+  defaults:
+    _entity_view: 'pragmatica_coding'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_coding.add_form:
+  path: '/admin/pragmatica/coding/add'
+  defaults:
+    _entity_form: 'pragmatica_coding.add'
+    _title: 'Adicionar codificação'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_coding.edit_form:
+  path: '/admin/pragmatica/coding/{pragmatica_coding}/edit'
+  defaults:
+    _entity_form: 'pragmatica_coding.edit'
+    _title: 'Editar codificação'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_coding.delete_form:
+  path: '/admin/pragmatica/coding/{pragmatica_coding}/delete'
+  defaults:
+    _entity_form: 'pragmatica_coding.delete'
+    _title: 'Apagar codificação'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE

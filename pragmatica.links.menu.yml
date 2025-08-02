@@ -27,6 +27,13 @@ pragmatica.selection:
   menu_name: admin
   weight: 3
 
+pragmatica.coding:
+  title: 'Codificações'
+  route_name: entity.pragmatica_coding.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 4
+
 pragmatica.config:
   title: 'Configurações'
   description: 'Configurações'

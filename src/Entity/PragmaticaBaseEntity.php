@@ -145,7 +145,7 @@ abstract class PragmaticaBaseEntity extends ContentEntityBase {
   public function buildListRow(PragmaticaBaseEntity $entity): array {
     return [
       'id' => $entity->id(),
-      'name' => $entity->get('name')->value,
+      'name' => $entity->hasField('name') ? $entity->get('name')->value : '',
       'changed' => $entity->getDisplayDateTimeFormatted('changed', $entity),
     ];
   }

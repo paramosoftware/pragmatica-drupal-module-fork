@@ -21,3 +21,9 @@ entity.pragmatica_user.add:
   title: 'Adicionar usuário'
   appears_on:
     - entity.pragmatica_user.collection
+
+entity.pragmatica_coding.add:
+  route_name: entity.pragmatica_coding.add_form
+  title: 'Adicionar codificação'
+  appears_on:
+    - entity.pragmatica_coding.collection
