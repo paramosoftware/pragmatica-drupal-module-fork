@@ -15,19 +15,19 @@ class SelectionForm extends PragmaticaBaseForm {
 
     $form['start_position']['#states'] = $form['end_position']['#states'] = [
       'visible' => [
-        ':input[name="type"]' => ['value' => '1']
+        ':input[name="type_id"]' => ['value' => '1']
       ],
     ];
 
     $form['begin']['#states'] = $form['end']['#states'] = [
       'visible' => [
-        ':input[name="type"]' => ['value' => '2']
+        ':input[name="type_id"]' => ['value' => '2']
       ],
     ];
 
     $form['from_sync_point']['#states'] = $form['to_sync_point']['#states'] = [
       'visible' => [
-        ':input[name="type"]' => ['value' => '3']
+        ':input[name="type_id"]' => ['value' => '3']
       ],
     ];
 

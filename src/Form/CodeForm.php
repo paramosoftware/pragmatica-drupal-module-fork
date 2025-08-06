@@ -18,7 +18,8 @@ class CodeForm extends PragmaticaBaseForm {
 
     /** @var Code $code */
     $code = $this->getEntity();
-    $parent_target = $form_state->getValue(['parent', 0, 'target_id']);
+    $parent_field = 'parent_id';
+    $parent_target = $form_state->getValue([$parent_field, 0, 'target_id']);
 
     if (!$code->isNew() && $parent_target) {
       $parent_id = (int) $parent_target;
@@ -26,7 +27,7 @@ class CodeForm extends PragmaticaBaseForm {
 
 
       if ($parent_id === $entity_id) {
-        $form_state->setErrorByName('parent', $this->t('O pai não pode ser o próprio código.'));
+        $form_state->setErrorByName($parent_field, $this->t('O pai não pode ser o próprio código.'));
         return;
       }
 
@@ -35,11 +36,11 @@ class CodeForm extends PragmaticaBaseForm {
       while ($parent) {
         $parent_id = $parent->id();
         if (in_array($parent_id, $ancestors)) {
-          $form_state->setErrorByName('parent', $this->t('Referência cíclica: o código não pode ser pai de si mesmo ou de um ancestral.'));
+          $form_state->setErrorByName($parent_field, $this->t('Referência cíclica: o código não pode ser pai de si mesmo ou de um ancestral.'));
           return;
         }
         $ancestors[] = $parent_id;
-        $parent = $parent->get('parent')->entity ?? NULL;
+        $parent = $parent->get($parent_field)->entity ?? NULL;
       }
     }
   }
