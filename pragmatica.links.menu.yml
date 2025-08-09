@@ -1,5 +1,12 @@
 #################### PRAGMÁTICA PUBLIC MENU ####################
 
+pragmatica.search:
+  title: 'Buscar'
+  description: 'Buscar códigos e fontes'
+  route_name: pragmatica.search_public
+  menu_name: main
+  weight: 0
+
 pragmatica.sources:
   title: 'Fontes'
   description: 'Visualizar fontes'

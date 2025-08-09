@@ -39,6 +39,12 @@ function pragmatica_theme($existing, $type, $theme, $path) {
         'code' => NULL,
         'selections' => [],
       ],
+    ],
+    'pragmatica_search_results' => [
+      'variables' => [
+        'query' => NULL,
+        'results' => [],
+      ],
     ]
   ];
 }

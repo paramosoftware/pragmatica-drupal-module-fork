@@ -18,8 +18,21 @@ pragmatica.import:
   options:
     _admin_route: TRUE
 
+
 ###################################################
-######## Source public routes #######################
+######## Search public route ######################
+###################################################
+
+pragmatica.search_public:
+  path: '/pragmatica/busca'
+  defaults:
+      _controller: '\Drupal\pragmatica\Controller\PragmaticaPublicController::search'
+      _title: 'Buscar'
+  requirements:
+      _access: 'TRUE'
+
+###################################################
+######## Source public routes #####################
 ###################################################
 
 pragmatica.source_public_list:

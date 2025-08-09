@@ -254,3 +254,48 @@
   justify-content: space-between;
   align-items: center;
 }
+
+
+/********************************** SEARCH STYLES ***********************************/
+.pragmatica-search-form {
+  margin-bottom: 20px;
+}
+
+.pragmatica-search-form input[type="text"] {
+  width: calc(100% - 130px);
+  border: var(--border-width) solid var(--border-color-light);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-md);
+}
+
+.pragmatica-search-form button {
+  padding: var(--padding-sm);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  margin-left: var(--gap);
+}
+
+.pragmatica-search-form button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.pragmatica-results-row {
+  display: flex;
+  gap: 16px;
+}
+
+.pragmatica-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 800px) {
+  .pragmatica-results-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
