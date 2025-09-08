@@ -39,3 +39,9 @@ entity.pragmatica_language.add:
   title: 'Adicionar linguagem'
   appears_on:
     - entity.pragmatica_language.collection
+
+entity.pragmatica_country.add:
+  route_name: entity.pragmatica_country.add_form
+  title: 'Adicionar país'
+  appears_on:
+    - entity.pragmatica_country.collection

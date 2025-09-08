@@ -500,7 +500,6 @@ entity.pragmatica_gender.edit_form:
   options:
     _admin_route: TRUE
 
-
 entity.pragmatica_gender.delete_form:
   path: '/admin/pragmatica/gender/{pragmatica_gender}/delete'
   defaults:
@@ -555,12 +554,65 @@ entity.pragmatica_language.edit_form:
   options:
     _admin_route: TRUE
 
-
 entity.pragmatica_language.delete_form:
   path: '/admin/pragmatica/language/{pragmatica_language}/delete'
   defaults:
     _entity_form: 'pragmatica_language.delete'
     _title: 'Apagar linguagem'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+
+###################################################
+############## Country routes ################
+###################################################
+
+entity.pragmatica_country.collection:
+  path: '/admin/pragmatica/country'
+  defaults:
+    _entity_list: 'pragmatica_country'
+    _title: 'Países'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_country.canonical:
+  path: '/admin/pragmatica/country/{pragmatica_country}'
+  defaults:
+    _entity_view: 'pragmatica_country'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_country.add_form:
+  path: '/admin/pragmatica/country/add'
+  defaults:
+    _entity_form: 'pragmatica_country.add'
+    _title: 'Adicionar país'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_country.edit_form:
+  path: '/admin/pragmatica/country/{pragmatica_country}/edit'
+  defaults:
+    _entity_form: 'pragmatica_country.edit'
+    _title: 'Editar país'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_country.delete_form:
+  path: '/admin/pragmatica/country/{pragmatica_country}/delete'
+  defaults:
+    _entity_form: 'pragmatica_country.delete'
+    _title: 'Apagar país'
   requirements:
     _permission: 'pragmatica'
   options:

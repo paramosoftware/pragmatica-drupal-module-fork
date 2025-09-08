@@ -109,3 +109,10 @@ pragmatica.config.language:
   parent: pragmatica.admin
   menu_name: admin
   weight: 5
+
+pragmatica.config.country:
+  title: 'Países'
+  route_name: entity.pragmatica_country.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 5
