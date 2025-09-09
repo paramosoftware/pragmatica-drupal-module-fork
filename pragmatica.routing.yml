@@ -754,7 +754,7 @@ entity.pragmatica_profession.add_form:
   path: '/admin/pragmatica/profession/add'
   defaults:
     _entity_form: 'pragmatica_profession.add'
-    _title: 'Adicionar prfossão'
+    _title: 'Adicionar profissão'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -775,6 +775,60 @@ entity.pragmatica_profession.delete_form:
   defaults:
     _entity_form: 'pragmatica_profession.delete'
     _title: 'Apagar profissão'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+
+###################################################
+############## Education routes ################
+###################################################
+
+entity.pragmatica_education.collection:
+  path: '/admin/pragmatica/education'
+  defaults:
+    _entity_list: 'pragmatica_education'
+    _title: 'Escolaridades'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_education.canonical:
+  path: '/admin/pragmatica/education/{pragmatica_education}'
+  defaults:
+    _entity_view: 'pragmatica_education'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_education.add_form:
+  path: '/admin/pragmatica/education/add'
+  defaults:
+    _entity_form: 'pragmatica_education.add'
+    _title: 'Adicionar escolaridade'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_education.edit_form:
+  path: '/admin/pragmatica/education/{pragmatica_education}/edit'
+  defaults:
+    _entity_form: 'pragmatica_education.edit'
+    _title: 'Editar escolaridade'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_education.delete_form:
+  path: '/admin/pragmatica/education/{pragmatica_education}/delete'
+  defaults:
+    _entity_form: 'pragmatica_education.delete'
+    _title: 'Apagar escolaridade'
   requirements:
     _permission: 'pragmatica'
   options:

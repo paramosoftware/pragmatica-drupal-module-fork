@@ -137,3 +137,10 @@ pragmatica.config.profession:
   parent: pragmatica.admin
   menu_name: admin
   weight: 5
+
+pragmatica.config.education:
+  title: 'Escolaridades'
+  route_name: entity.pragmatica_education.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 5

@@ -63,3 +63,9 @@ entity.pragmatica_profession.add:
   title: 'Adicionar profissão'
   appears_on:
     - entity.pragmatica_profession.collection
+
+entity.pragmatica_education.add:
+  route_name: entity.pragmatica_education.add_form
+  title: 'Adicionar escolaridade'
+  appears_on:
+    - entity.pragmatica_education.collection
