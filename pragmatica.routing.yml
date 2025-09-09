@@ -725,3 +725,57 @@ entity.pragmatica_city.delete_form:
     _permission: 'pragmatica'
   options:
     _admin_route: TRUE
+
+
+###################################################
+############## Profession routes ################
+###################################################
+
+entity.pragmatica_profession.collection:
+  path: '/admin/pragmatica/profession'
+  defaults:
+    _entity_list: 'pragmatica_profession'
+    _title: 'Profissões'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_profession.canonical:
+  path: '/admin/pragmatica/profession/{pragmatica_profession}'
+  defaults:
+    _entity_view: 'pragmatica_profession'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_profession.add_form:
+  path: '/admin/pragmatica/profession/add'
+  defaults:
+    _entity_form: 'pragmatica_profession.add'
+    _title: 'Adicionar prfossão'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_profession.edit_form:
+  path: '/admin/pragmatica/profession/{pragmatica_profession}/edit'
+  defaults:
+    _entity_form: 'pragmatica_profession.edit'
+    _title: 'Editar profissão'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_profession.delete_form:
+  path: '/admin/pragmatica/profession/{pragmatica_profession}/delete'
+  defaults:
+    _entity_form: 'pragmatica_profession.delete'
+    _title: 'Apagar profissão'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE

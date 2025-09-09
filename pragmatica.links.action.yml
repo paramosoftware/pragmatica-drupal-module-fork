@@ -57,3 +57,9 @@ entity.pragmatica_city.add:
   title: 'Adicionar cidade'
   appears_on:
     - entity.pragmatica_city.collection
+
+entity.pragmatica_profession.add:
+  route_name: entity.pragmatica_profession.add_form
+  title: 'Adicionar profissão'
+  appears_on:
+    - entity.pragmatica_profession.collection

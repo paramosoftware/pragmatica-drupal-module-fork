@@ -130,3 +130,10 @@ pragmatica.config.city:
   parent: pragmatica.admin
   menu_name: admin
   weight: 8
+
+pragmatica.config.profession:
+  title: 'Profissões'
+  route_name: entity.pragmatica_profession.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 5
