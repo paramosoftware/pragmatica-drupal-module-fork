@@ -151,3 +151,10 @@ pragmatica.config.situation:
   parent: pragmatica.admin
   menu_name: admin
   weight: 5
+
+pragmatica.config.informant:
+  title: 'Informantes'
+  route_name: entity.pragmatica_informant.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 5

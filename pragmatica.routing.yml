@@ -888,3 +888,58 @@ entity.pragmatica_situation.delete_form:
     _permission: 'pragmatica'
   options:
     _admin_route: TRUE
+
+
+
+###################################################
+############## Informant routes ################
+###################################################
+
+entity.pragmatica_informant.collection:
+  path: '/admin/pragmatica/informant'
+  defaults:
+    _entity_list: 'pragmatica_informant'
+    _title: 'Informantes'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_informant.canonical:
+  path: '/admin/pragmatica/informant/{pragmatica_informant}'
+  defaults:
+    _entity_view: 'pragmatica_informant'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_informant.add_form:
+  path: '/admin/pragmatica/informant/add'
+  defaults:
+    _entity_form: 'pragmatica_informant.add'
+    _title: 'Adicionar informante'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_informant.edit_form:
+  path: '/admin/pragmatica/informant/{pragmatica_informant}/edit'
+  defaults:
+    _entity_form: 'pragmatica_informant.edit'
+    _title: 'Editar informante'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE
+
+entity.pragmatica_informant.delete_form:
+  path: '/admin/pragmatica/informant/{pragmatica_informant}/delete'
+  defaults:
+    _entity_form: 'pragmatica_informant.delete'
+    _title: 'Apagar informante'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    _admin_route: TRUE

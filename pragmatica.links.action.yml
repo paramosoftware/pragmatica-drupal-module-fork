@@ -75,3 +75,9 @@ entity.pragmatica_situation.add:
   title: 'Adicionar situação'
   appears_on:
     - entity.pragmatica_situation.collection
+
+entity.pragmatica_informant.add:
+  route_name: entity.pragmatica_informant.add_form
+  title: 'Adicionar informante'
+  appears_on:
+    - entity.pragmatica_informant.collection
