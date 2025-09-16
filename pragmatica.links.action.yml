@@ -81,3 +81,9 @@ entity.pragmatica_informant.add:
   title: 'Adicionar informante'
   appears_on:
     - entity.pragmatica_informant.collection
+
+entity.pragmatica_response.add:
+  route_name: entity.pragmatica_response.add_form
+  title: 'Adicionar resposta'
+  appears_on:
+    - entity.pragmatica_response.collection

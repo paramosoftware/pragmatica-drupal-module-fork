@@ -943,3 +943,56 @@ entity.pragmatica_informant.delete_form:
     _permission: 'pragmatica'
   options:
     _admin_route: TRUE
+
+###################################################
+############### response routes #######################
+###################################################
+
+entity.pragmatica_response.collection:
+  path: '/admin/pragmatica/response'
+  defaults:
+    _entity_list: 'pragmatica_response'
+    _title: 'Respostas'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_response.canonical:
+  path: '/admin/pragmatica/response/{pragmatica_response}'
+  defaults:
+    _entity_view: 'pragmatica_response'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_response.add_form:
+  path: '/admin/pragmatica/response/add'
+  defaults:
+    _entity_form: 'pragmatica_response.add'
+    _title: 'Adicionar resposta'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_response.edit_form:
+  path: '/admin/pragmatica/response/{pragmatica_response}/edit'
+  defaults:
+    _entity_form: 'pragmatica_response.edit'
+    _title: 'Editar resposta'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE
+
+entity.pragmatica_response.delete_form:
+  path: '/admin/pragmatica/response/{pragmatica_response}/delete'
+  defaults:
+    _entity_form: 'pragmatica_response.delete'
+    _title: 'Apagar resposta'
+  requirements:
+    _permission: 'pragmatica'
+  options:
+    admin_route: TRUE

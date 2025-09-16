@@ -61,10 +61,17 @@ pragmatica.code:
   menu_name: admin
   weight: 1
 
+pragmatica.response:
+  title: 'Respostas'
+  route_name: entity.pragmatica_response.collection
+  parent: pragmatica.admin
+  menu_name: admin
+  weight: 2
+
 pragmatica.source:
   title: 'Fontes'
   route_name: entity.pragmatica_source.collection
-  parent: pragmatica.admin
+  parent: pragmatica.config
   menu_name: admin
   weight: 2
 
