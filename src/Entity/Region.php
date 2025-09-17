@@ -40,11 +40,10 @@ class Region extends PragmaticaBaseEntity {
   public static function getFieldsIds(): array {
     return [
       'id', 
-      'guid',
       'name',
+      'country_id',
       'created',
-      'changed',
-      'country_id'
+      'changed'
     ];
   }
 
@@ -75,7 +74,6 @@ class Region extends PragmaticaBaseEntity {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
       $fields['country_id'] = BaseFieldDefinition::create('entity_reference')
           ->setLabel(t('País'))
-          ->setDescription(t('País associado'))
           ->setSetting('target_type', 'pragmatica_country')
           ->setRequired(FALSE)
           ->setDisplayOptions('form', [

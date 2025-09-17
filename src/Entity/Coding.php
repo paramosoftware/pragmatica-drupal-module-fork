@@ -86,7 +86,6 @@ class Coding extends PragmaticaBaseEntity {
 
     $fields['selection_id'] = BaseFieldDefinition::create('entity_reference')
         ->setLabel(t('Seleção'))
-        ->setDescription(t('Seleção associada'))
         ->setSetting('target_type', 'pragmatica_selection')
         ->setRequired(TRUE)
         ->setDisplayOptions('form', [
@@ -101,7 +100,6 @@ class Coding extends PragmaticaBaseEntity {
 
     $fields['code_id'] = BaseFieldDefinition::create('entity_reference')
         ->setLabel(t('Código'))
-        ->setDescription(t('Código associado'))
         ->setSetting('target_type', 'pragmatica_code')
         ->setRequired(TRUE)
         ->setDisplayOptions('form', [

@@ -40,12 +40,11 @@ class City extends PragmaticaBaseEntity {
   public static function getFieldsIds(): array {
     return [
       'id', 
-      'guid',
       'name',
+      'country_id',
+      'region_id',
       'created',
       'changed',
-      'country_id',
-      'region_id'
     ];
   }
 
@@ -85,7 +84,6 @@ class City extends PragmaticaBaseEntity {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
     $fields['country_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('País'))
-      ->setDescription(t('País associado'))
       ->setSetting('target_type', 'pragmatica_country')
       ->setRequired(FALSE)
       ->setDisplayOptions('form', [
@@ -99,8 +97,7 @@ class City extends PragmaticaBaseEntity {
       ]);
 
     $fields['region_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Região'))
-      ->setDescription(t('Região associada'))
+      ->setLabel(t('Região/Estado'))
       ->setSetting('target_type', 'pragmatica_region')
       ->setRequired(FALSE)
       ->setDisplayOptions('form', [
