@@ -152,6 +152,6 @@ para permitir configurações locais de desenvolvimento (mostrar erros, desabili
     </Directory>
     ```
 
-12. A instalação pode ser acessada usando o endereço [http://localhost/fflch-drupal/web](http://localhost/fflch-drupal/web) (ou o caminho usado).
+11. A instalação pode ser acessada usando o endereço [http://localhost/fflch-drupal/web](http://localhost/fflch-drupal/web) (ou o caminho usado).
 
-13. Faça login com o usuário `fflch` e a senha `admin` em [http://localhost/fflch-drupal/web/user/login](http://localhost/fflch-drupal/web/user/login).
+12. Faça login com o usuário `fflch` e a senha `admin` em [http://localhost/fflch-drupal/web/user/login](http://localhost/fflch-drupal/web/user/login).
