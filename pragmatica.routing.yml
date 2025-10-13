@@ -932,3 +932,16 @@ entity.pragmatica_response.delete_form:
     _permission: 'pragmatica'
   options:
     admin_route: TRUE
+
+    ###################################################
+    ############### response public routes #######################
+    ###################################################
+
+
+pragmatica.response_item:
+  path: '/pragmatica/response/{pragmatica_response}'
+  defaults:
+    _controller: '\Drupal\pragmatica\Controller\ResponsePublicController::item'
+    _title: 'Resposta'
+  requirements:
+    _access: 'TRUE'
