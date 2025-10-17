@@ -40,11 +40,19 @@ class SituationPublicController extends ControllerBase {
     $processed_responses = [];
 
     foreach ($responses as $response) {
+      $current_informant = $response->get('informant_id')->entity;
+//      var_dump($current_informant);
+//      exit;
+
       $processed_responses[] = [
         'name' => $response->label(),
         'id' => $response->id(),
-        'informant_id' => $response->get('informant_id')->entity->id(),
-        'informant_name' => $response->get('informant_id')->entity->label()
+        'informant_id' => $current_informant->id(),
+        'informant_name' => $current_informant->label(),
+        'informant_age' => $current_informant->get('age')->value,
+        'informant_gender' => $current_informant->get('gender_id')->entity ? $current_informant->get('gender_id')->entity->label() : '',
+        'informant_city' => $current_informant->get('city_residency_id')->entity ? $current_informant->get('city_residency_id')->entity->label() : ''
+
       ];
     }
 

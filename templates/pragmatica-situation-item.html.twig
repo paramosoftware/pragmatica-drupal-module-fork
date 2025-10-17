@@ -1,26 +1,50 @@
 <div class="pragmatica">
   <div class="pragmatica-header pragmatica-justify-between">
+    <h1>{{ 'Situação'|t }}</h1>
     <h1 class="pragmatica-title">{{ situation.name.value }}</h1>
     <span class="pragmatica-tag-circle" style="background-color: {{ situation.color.value }}; color: #fff;"></span>
   </div>
   <div class="pragmatica-meta">
-    <p>{{ 'Adicionado em'|t }} {{ situation.created.value|date('d/m/Y') }}</p>
+    <p>{{ 'Adicionada em'|t }} {{ situation.created.value|date('d/m/Y') }}</p>
   </div>
 
-  <div class="pragmatica-content">
-    <p>{{ situation.code.value }}</p>
-  </div>
+{#  <div class="pragmatica-content">#}
+{#    <p>{{ situation.code.value }}</p>#}
+{#  </div>#}
 
 
-  <h2 class="pragmatica-subtitle">{{ 'Respondida em'|t }}</h2>
-  <ul class="pragmatica-list">
+  <h2 class="pragmatica-subtitle">{{ 'Respostas dos informantes: '|t }}</h2>
+  <ul class="pragmatica-list" id="situation-list">
     {% for response in responses %}
       <li class="pragmatica-list-item pragmatica-justify-between pragmatica-card">
-        <a href="{{ path('pragmatica.public_response_item', {'pragmatica_response': response.id}) }}" class="pragmatica-excerpt">{{ response.name }}</a>
+        <div class="pragmatica-list-item-content">
+
+          <div class="pragmatica-list-item-body">
+
+            <div class="pragmatica-response-container">
+              <p class="pragmatica-response">
+                {{ response.name }}
+              </p>
+              <p class="pragmatica-secondary-text"
+                 title="{%  if response.informant_age or response.informant_gender or response.informant_city %}{% if response.informant_age %}{{ response.informant_age }},{% endif %}{% if response.informant_gender %}{{ response.informant_gender }},{% endif %}{% if response.informant_city %}{{ response.informant_city }}{% endif %}{% endif %}">
+                {{ response.informant_name }}
+                <a href="{{ path('pragmatica.public_informant_item', {'pragmatica_informant': response.informant_id}) }}" class=""> »</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="pragmatica-header-code">
+            <a href="{{ path('pragmatica.public_response_item', {'pragmatica_response': response.id}) }}" class="pragmatica-arrow-icon" style="color: white">»</a>
+          </div>
+          
+        </div>
+
       </li>
     {% else %}
       <li>{{ 'Esta situação não foi respondida por nenhum informante.'|t }}</li>
     {% endfor %}
   </ul>
+
+
 
 </div>
