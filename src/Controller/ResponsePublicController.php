@@ -51,20 +51,37 @@ class ResponsePublicController extends ControllerBase
     $selection_ids = $query->execute();
     $selections = $selection_storage->loadMultiple($selection_ids);
     $processed_labels = [];
+    $processed_selections = [];
 
     foreach ($selections as $selection) {
       $processed_labels[] = [
         'name' => $selection->get('label_id')->entity->label(),
-        'id' => $selection->get('label_id')->entity->id()
+        'id' => $selection->get('label_id')->entity->id(),
+
+      ];
+
+      $processed_selections[] = [
+        'name' => $selection->label(),
+        'id' => $selection->id(),
+        'start_position' => $selection->get('start_position')->value,
+        'end_position' => $selection->get('end_position')->value,
+        'label_id' => $selection->get('label_id')->value
       ];
 
     }
+
+    $processed_situation = [
+      'name' => $pragmatica_response->get('situation_id')->entity->get('name')->value,
+      'id' => $pragmatica_response->get('situation_id')->entity->id(),
+    ];
 
 
 
     $build['#theme'] = 'pragmatica_response_item';
     $build['#response'] = $pragmatica_response;
     $build['#informant'] = $processed_informant;
+    $build['#situation'] = $processed_situation;
+    $build['#selections'] = $processed_selections;
     $build['#labels'] = $processed_labels;
     $build['#attached'] = [
       'library' => [

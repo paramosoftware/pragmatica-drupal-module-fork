@@ -1,8 +1,80 @@
+<script>
+  class ResponseBuilder {
+    constructor(response, selections, containerId) {
+      this.response = response;
+      this.selections = selections;
+      this.containerId = containerId;
+
+      this.initialize();
+    }
+
+    initialize() {
+      const responseContainer = document.getElementById(this.containerId)
+      const nonSelectedFragments = []
+      const selectedFragments = []
+      const processedSelections = new Set();
+
+      const filteredSelections = this.selections.filter(selection => {
+        const currentSelectionKey = `${selection.start_position}.${selection.end_position}.${selection.label_id}`;
+
+        if (!processedSelections.has(currentSelectionKey)) {
+          processedSelections.add(currentSelectionKey);
+          return true;
+        }
+
+        return false;
+
+      })
+
+      for (const selection of filteredSelections) {
+        const start_position = selection.start_position - 1;
+        const end_position = selection.end_position - 1;
+
+
+          let selectionFragment = this.response.substring(start_position, end_position);
+          let temp = document.createElement('p');
+
+          console.log(selection)
+          selectedFragments.push(selectionFragment)
+          temp.textContent = selectionFragment;
+          responseContainer.append(temp);
+
+        }
+
+
+      const sortedFilteredSelections = filteredSelections.sort((a, b) => a.start_position - b.start_position);
+
+      sortedFilteredSelections.forEach((sortedFilteredSelection, index) => {
+        let start = sortedFilteredSelection.start_position;
+        if (sortedFilteredSelection.start_position === 0) {
+          start = sortedFilteredSelection.end_position;
+
+        }
+
+        if (sortedFilteredSelection.end_position === this.response.length || index == sortedFilteredSelections.length - 1) {
+          return;
+        }
+
+        if (sortedFilteredSelection[index+1]) {
+          let end = sortedFilteredSelection[index+1].start_position
+          nonSelectedFragments.push({start_position: start, end})
+          console.log()
+        }
+
+
+      })
+      console.log(nonSelectedFragments);
+      }
+  }
+</script>
+
 <div class="pragmatica">
   <div class="pragmatica-header pragmatica-justify-between">
+    <p>{{ situation.name }}</p>
     <h1 class="pragmatica-title" style="color: red">{{ response.name.value }}</h1>
     <span class="pragmatica-tag-circle" style="background-color: {{ label.color.value }}; color: #fff;"></span>
   </div>
+
   <div class="pragmatica-content">
     <p>{{ response.description.value }}</p>
   </div>
@@ -10,7 +82,9 @@
     <p>Informante: </p>
     <a href="{{ path('pragmatica.public_informant_item', {'pragmatica_informant': informant.id}) }}" class="pragmatica-excerpt">{{ informant.name }}</a>
   </div>
+  <div id="selections">
 
+  </div>
   <p>Marcações: </p>
   {% for label in labels %}
       <a href="{{ path('pragmatica.label_public_item', {'pragmatica_label': label.id}) }}" class="pragmatica-excerpt">{{ label.name }}</a>
@@ -32,3 +106,7 @@
 {#  </ul>#}
 
 </div>
+
+<script>
+  const responseBuilder = new ResponseBuilder({{ response.name.value | json_encode | raw  }}, {{ selections | json_encode | raw }}, 'selections')
+</script>
