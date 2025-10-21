@@ -72,22 +72,8 @@ class PragmaticaPublicController extends ControllerBase {
       $results['responses'] = [];
       foreach ($responses as $response) {
         shuffle($tags_display);
-        $results['responses'][] = [
-          'label' => $response->label(),
-          'url' => Url::fromRoute('pragmatica.public_response_item', ['pragmatica_response' => $response->id()])->toString(),
-          'informant' => [
-            'label' => 'Informante: ' . $response->get('informant_id')->entity->label(),
-            'url' => Url::fromRoute('pragmatica.public_informant_item', ['pragmatica_informant' => $response->get('informant_id')->entity->id()])->toString(),
-            'tooltip' => $response->get('informant_id')->entity->getLabelValueDisplay(),
-          ],
-          'situation' => [
-            'label' => 'Situacão: ' . $response->get('situation_id')->entity->label(),
-            'url' => Url::fromRoute('pragmatica.public_situation_item', ['pragmatica_situation' => $response->get('situation_id')->entity->id()])->toString(),
-            'tooltip' => $response->get('situation_id')->entity->get('name')->value
-          ],
-//          'tags' => array_slice($tags_display, 0, mt_rand(5, 8))
-           'tags' => $response->getLabels()
-        ];
+        $results['responses'][] = $response->buildDataForDisplay();
+
       }
     }
 
