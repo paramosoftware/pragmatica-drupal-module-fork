@@ -1,4 +1,4 @@
-
+{% import '@pragmatica/pragmatica-macros.html.twig' as macros %}
   <style>
     .badge-square {
       border-radius: 0 !important;
@@ -31,12 +31,12 @@
       <div class="row">
         {% for field in filters %}
           <div class="col-12 col-md-6 col-lg-4">
-            {{ _self.renderField(field) }}
+            {{ macros.renderField(field) }}
           </div>
         {% endfor %}
       </div>
     </div>
-  
+
     <button type="submit" class="btn btn-primary">{{ 'Buscar'|t }}</button>
   </form>
 
@@ -44,7 +44,7 @@
     <h2 class="pragmatica-subtitle mt-4">{{ 'Resultados'|t }}</h2>
     {% if results.responses %}
       {% for response in results.responses %}
-        {{ _self.annotation_card(response.label, response.url, response.situation, response.informant, response.tags) }}
+        {{ macros.annotation_card(response.label, response.url, response.situation, response.informant, response.tags) }}
       {% endfor %}
     {% else %}
       <p>{{ 'Nenhum resultado encontrado.'|t }}</p>
@@ -54,56 +54,3 @@
 </div>
 
 
-
-{% macro renderField(field) %}
-<div class="mb-3">
-    <label for="{{ field.name }}" class="form-label">{{ field.label }}</label>
-    <br>
-
-    {% if field.type == 'select' %}
-      {% set selected = field.value ?? [] %}
-      <select name="{{ field.name }}" id="{{ field.name }}" {{ field.multiple ? 'multiple' : '' }} class="form-control">
-        {% for value, label in field.options %}
-          <option value="{{ value }}" {% if value in selected %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-      </select>
-
-    {% elseif field.type == 'number' %}
-      <input type="number" name="{{ field.name }}" id="{{ field.name }}" value="{{ field.value }}" min="{{ field.min }}" max="{{ field.max }}" class="form-control" />
-    
-    {% elseif field.type == 'text' %}
-      <input type="text" name="{{ field.name }}" id="{{ field.name }}" value="{{ field.value }}" />
-
-    {% else %}
-      <p class="error">Unsupported field type: {{ field.type }}</p>
-    {% endif %}
-</div>
-{% endmacro %}
-
-
-
-{% macro annotation_card(content, content_url, header_left, header_right, tags) %}
-  <div class="card border rounded-0 shadow-sm mb-3">
-    <div class="card-header bg-light text-muted rounded-0 py-1 d-flex justify-content-between align-items-center">
-      <a href="{{ header_left.url }}" class="text-muted hover-link" data-bs-toggle="tooltip"  data-bs-html="true" title="{{ header_left.tooltip }}">{{ header_left.label }}</a>
-      <a href="{{ header_right.url }}" class="text-muted hover-link" data-bs-toggle="tooltip" data-bs-html="true" title="{{ header_right.tooltip }}">{{ header_right.label }}</a>
-    </div>
-    <div class="card-body">
-      <p class="card-text mb-3">
-        {{ content|raw }}
-        <a href="{{ content_url }}" target="_blank">
-          ⬈
-        </a>
-      </p>
-      <div>
-        {% for tag in tags %}
-          <span class="badge badge-square me-1" style="background-color: {{ tag.color }};" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ tag.tooltip }}">
-            <a href="{{ tag.url }}" class="hover-link text-white">
-              {{ tag.label }}
-            </a>
-          </span>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-{% endmacro %}
