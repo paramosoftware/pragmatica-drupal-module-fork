@@ -5,6 +5,7 @@ namespace Drupal\pragmatica\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Url;
 use Drupal\pragmatica\Entity\Response;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -36,53 +37,25 @@ class ResponsePublicController extends ControllerBase
    */
   public function item(Response $pragmatica_response): array
   {
-
-
-    $informant = $pragmatica_response->get('informant_id')->entity;
-    $processed_informant = [
-      'name' => $informant->label(),
-      'id' => $informant->id(),
-    ];
-
-    // response selections
-    $selection_storage = $this->entityTypeManager->getStorage('pragmatica_selection');
-    $query = $selection_storage->getQuery();
-    $query->condition('response_id', $pragmatica_response->id());
-    $selection_ids = $query->execute();
-    $selections = $selection_storage->loadMultiple($selection_ids);
-    $processed_labels = [];
-    $processed_selections = [];
-
-    foreach ($selections as $selection) {
-      $processed_labels[] = [
-        'name' => $selection->get('label_id')->entity->label(),
-        'id' => $selection->get('label_id')->entity->id(),
-
+//    todo: maybe move processing to entity to avoid duplication? (PragmaticaPublicController::75)
+    $processed_response = [
+      'label' => $pragmatica_response->label(),
+      'url' => Url::fromRoute('pragmatica.public_response_item', ['pragmatica_response' => $pragmatica_response->id()])->toString(),
+      'informant' => [
+        'label' => 'Informante: ' . $pragmatica_response->get('informant_id')->entity->label(),
+        'url' => Url::fromRoute('pragmatica.public_informant_item', ['pragmatica_informant' => $pragmatica_response->get('informant_id')->entity->id()])->toString(),
+        'tooltip' => $pragmatica_response->get('informant_id')->entity->getLabelValueDisplay(),
+      ],
+      'situation' => [
+        'label' => 'Situacão: ' . $pragmatica_response->get('situation_id')->entity->label(),
+        'url' => Url::fromRoute('pragmatica.public_situation_item', ['pragmatica_situation' => $pragmatica_response->get('situation_id')->entity->id()])->toString(),
+        'tooltip' => $pragmatica_response->get('situation_id')->entity->get('name')->value
+      ],
+      'tags' => $pragmatica_response->getLabels()
       ];
-
-      $processed_selections[] = [
-        'name' => $selection->label(),
-        'id' => $selection->id(),
-        'start_position' => $selection->get('start_position')->value,
-        'end_position' => $selection->get('end_position')->value,
-        'label_id' => $selection->get('label_id')->value
-      ];
-
-    }
-
-    $processed_situation = [
-      'name' => $pragmatica_response->get('situation_id')->entity->get('name')->value,
-      'id' => $pragmatica_response->get('situation_id')->entity->id(),
-    ];
-
-
 
     $build['#theme'] = 'pragmatica_response_item';
-    $build['#response'] = $pragmatica_response;
-    $build['#informant'] = $processed_informant;
-    $build['#situation'] = $processed_situation;
-    $build['#selections'] = $processed_selections;
-    $build['#labels'] = $processed_labels;
+    $build['#response'] = $processed_response;
     $build['#attached'] = [
       'library' => [
         'pragmatica/pragmatica_styles',

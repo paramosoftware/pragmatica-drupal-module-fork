@@ -1,3 +1,5 @@
+{% import '@pragmatica/pragmatica-macros.html.twig' as macros %}
+
 <script>
   class ResponseBuilder {
     constructor(response, selections, containerId) {
@@ -75,38 +77,15 @@
     <span class="pragmatica-tag-circle" style="background-color: {{ label.color.value }}; color: #fff;"></span>
   </div>
 
-  <div class="pragmatica-content">
-    <p>{{ response.description.value }}</p>
-  </div>
-  <div class="pragmatica-content">
-    <p>Informante: </p>
-    <a href="{{ path('pragmatica.public_informant_item', {'pragmatica_informant': informant.id}) }}" class="pragmatica-excerpt">{{ informant.name }}</a>
-  </div>
-  <div id="selections">
-
-  </div>
-  <p>Marcações: </p>
-  {% for label in labels %}
-      <a href="{{ path('pragmatica.label_public_item', {'pragmatica_label': label.id}) }}" class="pragmatica-excerpt">{{ label.name }}</a>
+  {% if response %}
+      {#  content, content_url, header_left, header_right, tags#}
+      {{ macros.annotation_card(response.label, response.url, response.situation, response.informant, response.tags) }}
   {% else %}
-    <p>{{ 'Esta etiqueta não foi utilizado em nenhuma marcação.'|t }}</p>
-  {% endfor %}
-  <div class="pragmatica-meta">
-    <p>{{ 'Adicionado em'|t }} {{ response.created.value|date('d/m/Y') }}</p>
-  </div>
-
-{#  <ul class="pragmatica-list">#}
-{#      {% for label in labels %}#}
-{#        <li class="pragmatica-list-item pragmatica-justify-between pragmatica-card">#}
-{#          <a href="{{ path('pragmatica.label_public_item', {'pragmatica_label': label.id}) }}" class="pragmatica-excerpt">{{ label.name }}</a>#}
-{#        </li>#}
-{#      {% else %}#}
-{#        <li>{{ 'Esta etiqueta não foi utilizado em nenhuma marcação.'|t }}</li>#}
-{#      {% endfor %}#}
-{#  </ul>#}
+    <p>{{ 'Nenhum resultado encontrado.'|t }}</p>
+  {% endif %}
 
 </div>
 
 <script>
-  const responseBuilder = new ResponseBuilder({{ response.name.value | json_encode | raw  }}, {{ selections | json_encode | raw }}, 'selections')
+  {#const responseBuilder = new ResponseBuilder({{ response.name.value | json_encode | raw  }}, {{ selections | json_encode | raw }}, 'selections')#}
 </script>
