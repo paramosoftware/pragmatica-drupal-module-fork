@@ -167,7 +167,7 @@ entity.pragmatica_label_type.delete_form:
 ############ Label type public routes ####################
 ###################################################
 pragmatica.public_label_type_item:
-  path: '/pragmatica/label_type/{pragmatica_label_type}'
+  path: '/pragmatica/tipo_etiqueta/{pragmatica_label_type}'
   defaults:
     _controller: '\Drupal\pragmatica\Controller\LabelTypePublicController::item'
     _title: 'Situation'
@@ -829,7 +829,7 @@ entity.pragmatica_situation.delete_form:
 ###################################################
 
 pragmatica.public_situation_item:
-  path: '/pragmatica/situation/{pragmatica_situation}'
+  path: '/pragmatica/situacao/{pragmatica_situation}'
   defaults:
     _controller: '\Drupal\pragmatica\Controller\SituationPublicController::item'
     _title: 'Situation'
@@ -896,7 +896,7 @@ entity.pragmatica_informant.delete_form:
 ###################################################
 
 pragmatica.public_informant_item:
-  path: '/pragmatica/informant/{pragmatica_informant}'
+  path: '/pragmatica/informante/{pragmatica_informant}'
   defaults:
     _controller: '\Drupal\pragmatica\Controller\InformantPublicController::item'
     _title: 'Informante'
@@ -963,7 +963,7 @@ entity.pragmatica_response.delete_form:
 
 
 pragmatica.public_response_item:
-  path: '/pragmatica/response/{pragmatica_response}'
+  path: '/pragmatica/resposta/{pragmatica_response}'
   defaults:
     _controller: '\Drupal\pragmatica\Controller\ResponsePublicController::item'
     _title: 'Resposta'
