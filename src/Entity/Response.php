@@ -160,14 +160,22 @@ class Response extends PragmaticaBaseEntity {
     return $processed_labels;
 
 }
-
+public function buildDataForSearchResultDisplay() {
+    return [
+      'label' => $this->label(),
+      'url' => Url::fromRoute('pragmatica.public_response_item', ['pragmatica_response' => $this->id()])->toString(),
+      'informant' => $this->getForeignEntityDataForDisplay('informant_id', $this, 'Informante: '),
+      'situation' => $this->getForeignEntityDataForDisplay('situation_id', $this, 'Situação: '),
+      'tags' => $this->getLabels()
+    ];
+}
 public function buildDataForDisplay()
 {
   $processedData = [
     'label' => $this->label(),
     'url' => Url::fromRoute('pragmatica.public_response_item', ['pragmatica_response' => $this->id()])->toString(),
-    'informant' => $this->getForeignEntityDataForDisplay('informant_id', $this, 'Informante: '),
-    'situation' => $this->getForeignEntityDataForDisplay('situation_id', $this, 'Situação: '),
+    'informant' => $this->getForeignEntityDataForDisplay('informant_id', $this),
+    'situation' => $this->getForeignEntityDataForDisplay('situation_id', $this),
     'tags' => $this->getLabels()
   ];
 
@@ -181,13 +189,13 @@ public function buildDataForDisplay()
 
   foreach ($responses as $response) {
     $processed_responses[] = [
-      'name' => $response->label(),
-      'situation_name' => $response->get('situation_id')->entity->get('name')->value,
-      'situation_code' => $response->get('situation_id')->entity->get('code')->value,
-      'situation_id' => $response->get('situation_id')->entity->id(),
-      'id' => $response->id(),
+      'label' => $response->label(),
+      'url' => Url::fromRoute('pragmatica.public_response_item', ['pragmatica_response' => $response->id()])->toString(),
+      'informant' => $response->getForeignEntityDataForDisplay('informant_id', $response),
+      'situation' => $response->getForeignEntityDataForDisplay('situation_id', $response),
+      'tags' => $response->getLabels()
     ];
-
+    $processed_responses[array_key_last($processed_responses)]['situation']['label'] = $this->get('situation_id')->entity->get('name')->value;
   }
     $processedData['informant']['responses'] = $processed_responses;
     $processedData['situation']['label'] = $this->get('situation_id')->entity->get('name')->value;
