@@ -195,7 +195,7 @@ public function buildDataForDisplay()
       'situation' => $response->getForeignEntityDataForDisplay('situation_id', $response),
       'tags' => $response->getLabels()
     ];
-    $processed_responses[array_key_last($processed_responses)]['situation']['label'] = $this->get('situation_id')->entity->get('name')->value;
+    $processed_responses[array_key_last($processed_responses)]['situation']['label'] = $response->get('situation_id')->entity->get('name')->value;
   }
     $processedData['informant']['responses'] = $processed_responses;
     $processedData['situation']['label'] = $this->get('situation_id')->entity->get('name')->value;
