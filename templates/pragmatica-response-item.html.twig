@@ -76,38 +76,47 @@
     <span class="pragmatica-tag-circle" style="background-color: {{ label.color.value }}; color: #fff;"></span>
   </div>
 
+{#  todo: move to macro #}
   <div class="container px-0">
     <div class="d-flex flex-column gap-3">
+      <h1 class="fs-1">
+        {{ response.label }}
+      </h1>
 
-        <p class="mb-0 pb-0 text-muted fs-5">
-          {{ response.situation.label }}
-        </p>
-        <h1 class="fs-1">
-          {{ response.label }}
-        </h1>
-        <div id="response-labels" class="d-flex align-items-center">
-          <p class="fs-6 mb-0 me-2">Seleções:</p>
-          {% for tag in response.tags %}
-            <span class="badge badge-square me-1" style="font-size: 14px; background-color: {{ tag.color }};" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ tag.tooltip }}">
+
+        <div id="response-labels" class="d-flex flex-column gap-3 align-items-start mb-1">
+
+          <div>
+            <p class="fs-5 mb-0 me-2 fw-bold">Situação</p>
+            <p class="mb-0 pb-0 text-muted fs-6" style="color: var(--color-text-light)">
+              {{ response.situation.label }}
+            </p>
+          </div>
+
+          <div>
+            <p class="fs-5 me-2 fw-bold mb-2">Etiquetas</p>
+            <div>
+              {% for tag in response.tags %}
+                <span class="badge badge-square me-1 mb-1" style="font-size: 14px; background-color: {{ tag.color }};" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ tag.tooltip }}">
             <a href="{{ tag.url }}" class="hover-link text-white">
               {{ tag.label }}
             </a>
           </span>
-          {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
         </div>
-      <hr class="my-0 py-0">
-        <div class="mt-0 pt-0">
-          <p class="mb-0 pb-0">
-            Outras respostas deste informante ({{ response.informant.label }}):
-          </p>
+        <div class="pt-1">
+          <div class="d-flex align-items-end gap-1 mb-3">
+            <p class="my-0 py-0 pb-0 fs-5">
+              Outras respostas deste informante
+            </p>
+            <a href="{{ response.informant.url }}">({{ response.informant.label }}):</a>
+          </div>
+
           <div class="d-flex flex-column gap-3">
             {% for response in response.informant.responses %}
-              <div class="d-flex">
-
-                <p class="mb-0">{{ response.name }}</p>
-                <a href="{{ path('pragmatica.public_response_item', {'pragmatica_response': response.id}) }}" class="test-href">>></a>
-
-              </div>
+              {{ macros.annotation_card(response.label, response.url, response.situation, null, response.tags) }}
             {% endfor %}
           </div>
        </div>
