@@ -58,27 +58,26 @@ class LabelPublicController extends ControllerBase {
 
     $selection_ids = $query->execute();
     $selections = $selection_storage->loadMultiple($selection_ids);
-    $processed_selections = [];
+    $processed_responses = [];
+
+    $selections = array_slice($selections, 0, 50);
     foreach ($selections as $selection) {
-      $current_response_id = $selection->get('response_id')->entity->id();
-        $processed_selections[] = [
-          'name' => $selection->label(),
-          'id' => $selection->id(),
-          'response_id' => $current_response_id,
-          'situation_id' =>  $this->entityTypeManager->getStorage('pragmatica_selection')->load($current_response_id)->id()
-        ];
+      $processed_responses[] = $selection->get('response_id')->entity->buildSimplifiedDataForDisplay();
+
     }
 
     $label_type = $pragmatica_label->get('type_id')->entity;
+
     $processed_label_type = [
       'name' => $label_type->label(),
       'id'  => $label_type->id()
     ];
 
+
     $build['#theme'] = 'pragmatica_label_item';
     $build['#label'] = $pragmatica_label;
+    $build['#responses'] = $processed_responses;
     $build['#label_type'] = $processed_label_type;
-    $build['#selections'] = $processed_selections;
     $build['#attached'] = [
       'library' => [
         'pragmatica/pragmatica_styles',

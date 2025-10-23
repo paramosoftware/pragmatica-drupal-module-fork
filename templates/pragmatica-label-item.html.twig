@@ -1,36 +1,33 @@
+{% import '@pragmatica/pragmatica-macros.html.twig' as macros %}
+
 <div class="pragmatica">
   <div class="pragmatica-header pragmatica-justify-between">
     <h1 class="pragmatica-title">{{ 'Etiqueta'|t }}</h1>
     <span class="pragmatica-tag-circle" style="background-color: {{ label.color.value }}; color: #fff;"></span>
   </div>
-  <div class="pragmatica-meta">
-    <p>{{ 'Adicionada em'|t }} {{ label.created.value|date('d/m/Y') }}</p>
-  </div>
 
   <div class="pragmatica-content">
-    <p>{{ label.description.value }}</p>
-    <p>{{ 'Tipo'|t }}:
+    <p>{{ label.description.value|slice(0,400,true) }}...</p>
+    <p>{{ 'Tipo de etiqueta'|t }}:
       <a href="{{ path('pragmatica.public_label_type_item', {'pragmatica_label_type': label_type.id}) }}" class="pragmatica-excerpt"> {{ label_type.name }}</a>
 
     </p>
-    <p>{{ 'Cor de identificação'|t }}: <span class="pragmatica-tag-circle" style="background-color: {{ label.color.value }}; color: #fff;"></span> </p>
-    <p>{{ 'Código'|t }}: {{ label.code.value  }}</span> </p>
+
+    <p>{{ 'Código'|t }}: <span style="color:{{ label.color.value }}" > {{ label.code.value  }}</span>  </p>
+
   </div>
 
 
-  <h2 class="pragmatica-subtitle">{{ 'Utilizada nas marcações:'|t }}</h2>
-  <ul class="pragmatica-list">
-      {% for selection in selections %}
-        <li class="pragmatica-list-item pragmatica-justify-between pragmatica-card">
-          <p>Trecho</p>
-          <a href="{{ path('pragmatica.public_response_item', {'pragmatica_response': selection.response_id}) }}" class="pragmatica-excerpt">{{ selection.name }}</a>
+  <h2 class="pragmatica-subtitle">{{ 'Utilizada nas respostas:'|t }}</h2>
 
-          {#          <a href="{{ path('pragmatica.public_situation_item', {'pragmatica_situation': selection.situation_id}) }}" class="pragmatica-excerpt">{{ selection.situation_name }}</a>#}
-        </li>
-      {% else %}
-        <li>{{ 'Esta etiqueta não foi utilizado em nenhuma marcação.'|t }}</li>
-      {% endfor %}
-  </ul>
+  {% if responses %}
+    {% for response in responses %}
+      {{ macros.annotation_card(response.label, response.url, response.situation, response.informant, response.tags) }}
+    {% endfor %}
+  {% else %}
+    <p>{{ 'Nenhum resultado encontrado.'|t }}</p>
+  {% endif %}
+
 
   <a href="{{ path('pragmatica.label_public_list') }}" class="pragmatica-back-link">
     ← {{ 'Voltar para lista de etiquetas'|t }}

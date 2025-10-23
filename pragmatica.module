@@ -28,7 +28,7 @@ function pragmatica_theme($existing, $type, $theme, $path) {
     'pragmatica_label_item' => [
       'variables' => [
         'label' => NULL,
-        'selections' => [],
+        'responses' => [],
         'label_type' => NULL,
       ],
     ],
