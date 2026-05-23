@@ -2,8 +2,10 @@
 
 
 
+<div class="pragmatica-response-container">
+
 <div class="d-flex align-items-center d-flex justify-content-between fs-3 mt-3">            
-    <h1 class="fs-3">{{ response.label }}</h1>
+    <h1 class="fs-3 pragmatica-response-text">{{ response.label }}</h1>
 </div>
 
 {% if response._attributes %}
@@ -22,6 +24,8 @@
       <p class="text-muted">Sem etiquetas</p>
   {% endif %}
 </div>
+
+</div>{# end pragmatica-response-container #}
 
 <h2>Outras respostas do mesmo informante</h2>
 <div class="d-flex flex-column gap-3 mt-3">

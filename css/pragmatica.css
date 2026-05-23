@@ -111,3 +111,60 @@
 .border-bottom {
   border-bottom: 1px solid #212529;
 }
+
+/* ── Label badge – pin button ─────────────────────────────────────────────── */
+
+.pragmatica-label-badge {
+  cursor: default;
+  position: relative;
+}
+
+.badge.pragmatica-label-badge {
+  font-size: 0.8rem;
+  padding: 0.45rem 0.7rem;
+  gap: 0.35rem;
+}
+
+.pragmatica-label-badge .hover-link {
+  color: inherit;
+}
+
+.pragmatica-label-badge .hover-link:hover {
+  color: inherit !important;
+}
+
+.pragmatica-pin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 3px;
+  margin: -3px -3px -3px 0;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, transform 0.2s ease;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.pragmatica-pin-btn:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.pragmatica-pin-btn.pinned {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.pragmatica-response-text mark {
+  transition: background 0.15s ease;
+}
+
+.pragmatica-response-text .pragmatica-dim {
+  opacity: 0.3;
+  transition: opacity 0.15s ease;
+}
