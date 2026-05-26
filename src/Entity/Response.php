@@ -129,6 +129,10 @@ class Response extends PragmaticaBaseEntity {
     foreach ($selections as $selection) {
       /** @var \Drupal\pragmatica\Entity\Label $selection_label_entity */
       $selection_label_entity = $selection->get('label_id')->entity;
+      if (!$selection_label_entity) {
+        continue;
+      }
+      
       $label_id = $selection_label_entity->id();
 
       if (!isset($processed_labels[$label_id])) {
