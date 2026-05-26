@@ -117,7 +117,7 @@ class Informant extends PragmaticaBaseEntity {
     $header['education_id'] = t('Escolaridade');
     $header['profession_id'] = t('Profissão');
     $header['city_birth_id'] = t('Cidade natal');
-    $header['city_residency_id'] = t('Cidade de residência');
+    $header['city_residency_id'] = t('Residência');
     return $this->addItemsAfterKeyInArray($header, $parent, 'code');
   }
 
@@ -220,7 +220,7 @@ class Informant extends PragmaticaBaseEntity {
       ]);
 
     $fields['city_residency_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Cidade de residência'))
+      ->setLabel(t('Residência'))
       ->setSetting('target_type', 'pragmatica_city')
       ->setRequired(FALSE)
       ->setDisplayOptions('form', [

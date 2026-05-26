@@ -42,7 +42,7 @@ entity.pragmatica_region.add:
 
 entity.pragmatica_city.add:
   route_name: entity.pragmatica_city.add_form
-  title: 'Adicionar cidade'
+  title: 'Adicionar residência'
   appears_on:
     - entity.pragmatica_city.collection
 

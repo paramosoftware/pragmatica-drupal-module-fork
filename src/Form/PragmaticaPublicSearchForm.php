@@ -114,7 +114,7 @@ class PragmaticaPublicSearchForm extends FormBase {
     }
 
     $config['language_id'] = $this->addField('language_id', 'Idioma', $this->getEntityOptions('language'), true, 'informant');
-    $config['city_residency_id'] = $this->addField('city_residency_id', 'Cidade', $this->getEntityOptions('city'), true, 'informant');
+    $config['city_residency_id'] = $this->addField('city_residency_id', 'Residência', $this->getEntityOptions('city'), true, 'informant');
     $config['education_id'] = $this->addField('education_id', 'Escolaridade', $this->getEntityOptions('education'), true, 'informant');
     $config['gender_id'] = $this->addField('gender_id', 'Gênero', $this->getEntityOptions('gender'), true, 'informant');
     $config['profession_id'] = $this->addField('profession_id', 'Profissão', $this->getEntityOptions('profession'), true, 'informant');

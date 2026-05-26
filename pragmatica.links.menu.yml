@@ -132,7 +132,7 @@ pragmatica.config.region:
   weight: 0
 
 pragmatica.config.city:
-  title: 'Cidades'
+  title: 'Residências'
   route_name: entity.pragmatica_city.collection
   parent: pragmatica.auxiliary
   menu_name: admin

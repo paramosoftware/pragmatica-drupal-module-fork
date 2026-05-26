@@ -496,7 +496,7 @@ entity.pragmatica_city.collection:
   path: '/admin/pragmatica/city'
   defaults:
     _entity_list: 'pragmatica_city'
-    _title: 'Cidades'
+    _title: 'Residências'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -515,7 +515,7 @@ entity.pragmatica_city.add_form:
   path: '/admin/pragmatica/city/add'
   defaults:
     _entity_form: 'pragmatica_city.add'
-    _title: 'Adicionar cidade'
+    _title: 'Adicionar residência'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -525,7 +525,7 @@ entity.pragmatica_city.edit_form:
   path: '/admin/pragmatica/city/{pragmatica_city}/edit'
   defaults:
     _entity_form: 'pragmatica_city.edit'
-    _title: 'Editar cidade'
+    _title: 'Editar residência'
   requirements:
     _permission: 'pragmatica'
   options:
@@ -535,7 +535,7 @@ entity.pragmatica_city.delete_form:
   path: '/admin/pragmatica/city/{pragmatica_city}/delete'
   defaults:
     _entity_form: 'pragmatica_city.delete'
-    _title: 'Apagar cidade'
+    _title: 'Apagar residência'
   requirements:
     _permission: 'pragmatica'
   options:
