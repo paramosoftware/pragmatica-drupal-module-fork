@@ -659,8 +659,13 @@ class CSVImporter {
         $storage = $this->entityTypeManager->getStorage($entity_type);
         $ids = $storage->getQuery()->accessCheck(FALSE)->execute();
         if ($ids) {
-          $entities = $storage->loadMultiple($ids);
-          $storage->delete($entities);
+          // do it in batches to avoid memory issues
+          $batch_size = 50;
+          $chunks = array_chunk($ids, $batch_size);
+          foreach ($chunks as $chunk) {
+            $entities = $storage->loadMultiple($chunk);
+            $storage->delete($entities);
+          }
         }
       }
       catch (\Exception $e) {
