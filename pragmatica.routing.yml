@@ -4,7 +4,7 @@ pragmatica.dashboard:
     _controller: '\Drupal\pragmatica\Controller\PragmaticaController::dashboard'
     _title: 'Painel - Pragmática'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -14,7 +14,7 @@ pragmatica.import.seed:
     _title: 'Importar listas controladas (CSV)'
     _controller: '\Drupal\pragmatica\Controller\ImportController::importSeedForm'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -24,7 +24,7 @@ pragmatica.import.research:
     _title: 'Importar dados de pesquisa (CSV)'
     _controller: '\Drupal\pragmatica\Controller\ImportController::importResearchForm'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -43,7 +43,7 @@ pragmatica.public.search:
       _controller: '\Drupal\pragmatica\Controller\PragmaticaPublicController::search'
       _title: 'Buscar'
   requirements:
-      _access: 'TRUE'
+      _permission: 'pragmatica view public'
 
 
 ###################################################
@@ -57,7 +57,7 @@ pragmatica.public.label.item:
     _title_callback: '\Drupal\pragmatica\Controller\LabelPublicController::itemTitle'
   requirements:
     pragmatica_label: \d+
-    _access: 'TRUE'
+    _permission: 'pragmatica view public'
 
 pragmatica.public.label.list:
   path: '/pragmatica/etiquetas'
@@ -65,7 +65,7 @@ pragmatica.public.label.list:
     _controller: '\Drupal\pragmatica\Controller\LabelPublicController::list'
     _title: 'Etiquetas'
   requirements:
-    _access: 'TRUE'
+    _permission: 'pragmatica view public'
 
 ###################################################
 ################# response public #################
@@ -78,7 +78,7 @@ pragmatica.public.response.item:
     _controller: '\Drupal\pragmatica\Controller\ResponsePublicController::item'
     _title: 'Resposta'
   requirements:
-    _access: 'TRUE'
+    _permission: 'pragmatica view public'
 
 
 ###################################################
@@ -91,7 +91,7 @@ pragmatica.public.situation.item:
     _controller: '\Drupal\pragmatica\Controller\SituationPublicController::item'
     _title: 'Situação'
   requirements:
-    _access: 'TRUE'
+    _permission: 'pragmatica view public'
 
 ###################################################
 ################# Informant public ################
@@ -103,7 +103,7 @@ pragmatica.public.informant.item:
     _controller: '\Drupal\pragmatica\Controller\InformantPublicController::item'
     _title: 'Informante'
   requirements:
-    _access: 'TRUE'
+    _permission: 'pragmatica view public'
 
 
 
@@ -121,7 +121,7 @@ entity.pragmatica_label.collection:
     _entity_list: 'pragmatica_label'
     _title: 'Etiquetas'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -130,7 +130,7 @@ entity.pragmatica_label.canonical:
   defaults:
     _entity_view: 'pragmatica_label'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -140,7 +140,7 @@ entity.pragmatica_label.add_form:
     _entity_form: 'pragmatica_label.add'
     _title: 'Adicionar etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
       _admin_route: TRUE
 
@@ -150,7 +150,7 @@ entity.pragmatica_label.edit_form:
     _entity_form: 'pragmatica_label.edit'
     _title: 'Editar etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -160,7 +160,7 @@ entity.pragmatica_label.delete_form:
     _entity_form: 'pragmatica_label.delete'
     _title: 'Apagar etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -174,7 +174,7 @@ entity.pragmatica_label_type.collection:
     _entity_list: 'pragmatica_label_type'
     _title: 'Tipos de etiquetas'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -183,7 +183,7 @@ entity.pragmatica_label_type.canonical:
   defaults:
     _entity_view: 'pragmatica_label_type'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -193,7 +193,7 @@ entity.pragmatica_label_type.add_form:
     _entity_form: 'pragmatica_label_type.add'
     _title: 'Adicionar tipo de etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -203,7 +203,7 @@ entity.pragmatica_label_type.edit_form:
     _entity_form: 'pragmatica_label_type.edit'
     _title: 'Editar tipo de etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -213,7 +213,7 @@ entity.pragmatica_label_type.delete_form:
     _entity_form: 'pragmatica_label_type.delete'
     _title: 'Apagar tipo de etiqueta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -228,7 +228,7 @@ entity.pragmatica_selection.collection:
     _entity_list: 'pragmatica_selection'
     _title: 'Marcações'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -237,7 +237,7 @@ entity.pragmatica_selection.canonical:
   defaults:
     _entity_view: 'pragmatica_selection'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -247,7 +247,7 @@ entity.pragmatica_selection.add_form:
     _entity_form: 'pragmatica_selection.add'
     _title: 'Adicionar marcação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -257,7 +257,7 @@ entity.pragmatica_selection.edit_form:
     _entity_form: 'pragmatica_selection.edit'
     _title: 'Editar marcação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -267,7 +267,7 @@ entity.pragmatica_selection.delete_form:
     _entity_form: 'pragmatica_selection.delete'
     _title: 'Apagar marcação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -282,7 +282,7 @@ entity.pragmatica_gender.collection:
     _entity_list: 'pragmatica_gender'
     _title: 'Gêneros'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -291,7 +291,7 @@ entity.pragmatica_gender.canonical:
   defaults:
     _entity_view: 'pragmatica_gender'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -301,7 +301,7 @@ entity.pragmatica_gender.add_form:
     _entity_form: 'pragmatica_gender.add'
     _title: 'Adicionar gênero'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -311,7 +311,7 @@ entity.pragmatica_gender.edit_form:
     _entity_form: 'pragmatica_gender.edit'
     _title: 'Editar gênero'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -321,7 +321,7 @@ entity.pragmatica_gender.delete_form:
     _entity_form: 'pragmatica_gender.delete'
     _title: 'Apagar gênero'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -336,7 +336,7 @@ entity.pragmatica_language.collection:
     _entity_list: 'pragmatica_language'
     _title: 'Linguagens'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -345,7 +345,7 @@ entity.pragmatica_language.canonical:
   defaults:
     _entity_view: 'pragmatica_language'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -355,7 +355,7 @@ entity.pragmatica_language.add_form:
     _entity_form: 'pragmatica_language.add'
     _title: 'Adicionar língua'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -365,7 +365,7 @@ entity.pragmatica_language.edit_form:
     _entity_form: 'pragmatica_language.edit'
     _title: 'Editar língua'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -375,7 +375,7 @@ entity.pragmatica_language.delete_form:
     _entity_form: 'pragmatica_language.delete'
     _title: 'Apagar língua'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -390,7 +390,7 @@ entity.pragmatica_country.collection:
     _entity_list: 'pragmatica_country'
     _title: 'Países'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -399,7 +399,7 @@ entity.pragmatica_country.canonical:
   defaults:
     _entity_view: 'pragmatica_country'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -409,7 +409,7 @@ entity.pragmatica_country.add_form:
     _entity_form: 'pragmatica_country.add'
     _title: 'Adicionar país'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -419,7 +419,7 @@ entity.pragmatica_country.edit_form:
     _entity_form: 'pragmatica_country.edit'
     _title: 'Editar país'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -429,7 +429,7 @@ entity.pragmatica_country.delete_form:
     _entity_form: 'pragmatica_country.delete'
     _title: 'Apagar país'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -444,7 +444,7 @@ entity.pragmatica_region.collection:
     _entity_list: 'pragmatica_region'
     _title: 'Regiões'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -453,7 +453,7 @@ entity.pragmatica_region.canonical:
   defaults:
     _entity_view: 'pragmatica_region'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -463,7 +463,7 @@ entity.pragmatica_region.add_form:
     _entity_form: 'pragmatica_region.add'
     _title: 'Adicionar região'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -473,7 +473,7 @@ entity.pragmatica_region.edit_form:
     _entity_form: 'pragmatica_region.edit'
     _title: 'Editar região'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -483,7 +483,7 @@ entity.pragmatica_region.delete_form:
     _entity_form: 'pragmatica_region.delete'
     _title: 'Apagar região'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -498,7 +498,7 @@ entity.pragmatica_city.collection:
     _entity_list: 'pragmatica_city'
     _title: 'Residências'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -507,7 +507,7 @@ entity.pragmatica_city.canonical:
   defaults:
     _entity_view: 'pragmatica_city'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -517,7 +517,7 @@ entity.pragmatica_city.add_form:
     _entity_form: 'pragmatica_city.add'
     _title: 'Adicionar residência'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -527,7 +527,7 @@ entity.pragmatica_city.edit_form:
     _entity_form: 'pragmatica_city.edit'
     _title: 'Editar residência'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -537,7 +537,7 @@ entity.pragmatica_city.delete_form:
     _entity_form: 'pragmatica_city.delete'
     _title: 'Apagar residência'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -552,7 +552,7 @@ entity.pragmatica_profession.collection:
     _entity_list: 'pragmatica_profession'
     _title: 'Profissões'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -561,7 +561,7 @@ entity.pragmatica_profession.canonical:
   defaults:
     _entity_view: 'pragmatica_profession'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -571,7 +571,7 @@ entity.pragmatica_profession.add_form:
     _entity_form: 'pragmatica_profession.add'
     _title: 'Adicionar profissão'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -581,7 +581,7 @@ entity.pragmatica_profession.edit_form:
     _entity_form: 'pragmatica_profession.edit'
     _title: 'Editar profissão'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -591,7 +591,7 @@ entity.pragmatica_profession.delete_form:
     _entity_form: 'pragmatica_profession.delete'
     _title: 'Apagar profissão'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -606,7 +606,7 @@ entity.pragmatica_education.collection:
     _entity_list: 'pragmatica_education'
     _title: 'Escolaridades'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -615,7 +615,7 @@ entity.pragmatica_education.canonical:
   defaults:
     _entity_view: 'pragmatica_education'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -625,7 +625,7 @@ entity.pragmatica_education.add_form:
     _entity_form: 'pragmatica_education.add'
     _title: 'Adicionar escolaridade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -635,7 +635,7 @@ entity.pragmatica_education.edit_form:
     _entity_form: 'pragmatica_education.edit'
     _title: 'Editar escolaridade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -645,7 +645,7 @@ entity.pragmatica_education.delete_form:
     _entity_form: 'pragmatica_education.delete'
     _title: 'Apagar escolaridade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -661,7 +661,7 @@ entity.pragmatica_situation.collection:
     _entity_list: 'pragmatica_situation'
     _title: 'Situações'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -670,7 +670,7 @@ entity.pragmatica_situation.canonical:
   defaults:
     _entity_view: 'pragmatica_situation'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -680,7 +680,7 @@ entity.pragmatica_situation.add_form:
     _entity_form: 'pragmatica_situation.add'
     _title: 'Adicionar situação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -690,7 +690,7 @@ entity.pragmatica_situation.edit_form:
     _entity_form: 'pragmatica_situation.edit'
     _title: 'Editar situação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -700,7 +700,7 @@ entity.pragmatica_situation.delete_form:
     _entity_form: 'pragmatica_situation.delete'
     _title: 'Apagar situação'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -715,7 +715,7 @@ entity.pragmatica_informant.collection:
     _entity_list: 'pragmatica_informant'
     _title: 'Informantes'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -724,7 +724,7 @@ entity.pragmatica_informant.canonical:
   defaults:
     _entity_view: 'pragmatica_informant'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -734,7 +734,7 @@ entity.pragmatica_informant.add_form:
     _entity_form: 'pragmatica_informant.add'
     _title: 'Adicionar informante'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -744,7 +744,7 @@ entity.pragmatica_informant.edit_form:
     _entity_form: 'pragmatica_informant.edit'
     _title: 'Editar informante'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -754,7 +754,7 @@ entity.pragmatica_informant.delete_form:
     _entity_form: 'pragmatica_informant.delete'
     _title: 'Apagar informante'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     _admin_route: TRUE
 
@@ -769,7 +769,7 @@ entity.pragmatica_response.collection:
     _entity_list: 'pragmatica_response'
     _title: 'Respostas'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -778,7 +778,7 @@ entity.pragmatica_response.canonical:
   defaults:
     _entity_view: 'pragmatica_response'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -788,7 +788,7 @@ entity.pragmatica_response.add_form:
     _entity_form: 'pragmatica_response.add'
     _title: 'Adicionar resposta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -798,7 +798,7 @@ entity.pragmatica_response.edit_form:
     _entity_form: 'pragmatica_response.edit'
     _title: 'Editar resposta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -808,7 +808,7 @@ entity.pragmatica_response.delete_form:
     _entity_form: 'pragmatica_response.delete'
     _title: 'Apagar resposta'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -824,7 +824,7 @@ entity.pragmatica_age_interval.collection:
     _entity_list: 'pragmatica_age_interval'
     _title: 'Intervalos de idade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -833,7 +833,7 @@ entity.pragmatica_age_interval.canonical:
   defaults:
     _entity_view: 'pragmatica_age_interval'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -843,7 +843,7 @@ entity.pragmatica_age_interval.add_form:
     _entity_form: 'pragmatica_age_interval.add'
     _title: 'Adicionar intervalo de idade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -853,7 +853,7 @@ entity.pragmatica_age_interval.edit_form:
     _entity_form: 'pragmatica_age_interval.edit'
     _title: 'Editar intervalo de idade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
 
@@ -863,6 +863,6 @@ entity.pragmatica_age_interval.delete_form:
     _entity_form: 'pragmatica_age_interval.delete'
     _title: 'Apagar intervalo de idade'
   requirements:
-    _permission: 'pragmatica'
+    _permission: 'administer pragmatica'
   options:
     admin_route: TRUE
