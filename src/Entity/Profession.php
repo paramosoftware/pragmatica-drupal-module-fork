@@ -12,7 +12,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   label = @Translation("Profissão"),
  *   label_plural = @Translation("Profissões"),
  *   base_table = "pragmatica_profession",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"

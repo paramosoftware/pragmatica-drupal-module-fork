@@ -12,7 +12,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   label = @Translation("Intervalo de idade"),
  *   label_plural = @Translation("Intervalos de idade"),
  *   base_table = "pragmatica_age_interval",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"

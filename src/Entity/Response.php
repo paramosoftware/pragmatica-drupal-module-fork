@@ -15,7 +15,7 @@ use Drupal\Core\Url;
  *   label = @Translation("Resposta"),
  *   label_plural = @Translation("Respostas"),
  *   base_table = "pragmatica_response",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"

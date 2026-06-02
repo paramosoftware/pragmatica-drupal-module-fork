@@ -33,7 +33,7 @@ use Drupal\Core\Render\Markup;
  *    "delete-form" = "/admin/pragmatica/label/{pragmatica_label}/delete",
  *    "collection" = "/admin/pragmatica/label",
  *   },
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  * )
  */
 class Label extends PragmaticaBaseEntity {

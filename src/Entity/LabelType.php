@@ -12,7 +12,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   label = @Translation("Tipo de etiqueta"),
  *   label_plural = @Translation("Tipos de etiquetas"),
  *   base_table = "pragmatica_label_type",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"

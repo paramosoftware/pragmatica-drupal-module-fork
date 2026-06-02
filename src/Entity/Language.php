@@ -13,7 +13,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   label = @Translation("Língua"),
  *   label_plural = @Translation("Línguas"),
  *   base_table = "pragmatica_language",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"

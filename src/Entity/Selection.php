@@ -13,7 +13,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   label = @Translation("Marcação"),
  *   label_plural = @Translation("Marcações"),
  *   base_table = "pragmatica_selection",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"
