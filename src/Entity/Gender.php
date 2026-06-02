@@ -12,7 +12,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   label = @Translation("Gênero"),
  *   label_plural = @Translation("Gêneros"),
  *   base_table = "pragmatica_gender",
- *   admin_permission = "pragmatica",
+ *   admin_permission = "administer nodes",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name"
